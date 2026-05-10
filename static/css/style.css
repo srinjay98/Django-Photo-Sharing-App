@@ -1,0 +1,8 @@
+.memory-card {
+    border-radius: 10px;
+}
+
+.memory-image {
+    height: 350px;
+    object-fit: cover;
+}

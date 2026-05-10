@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">
+    Memory Feed
+</h2>
+
+{% for post in posts %}
+
+<div class="row justify-content-center mb-4">
+
+    <div class="col-md-8">
+
+        <div class="card memory-card shadow-sm">
+
+            <!-- Image -->
+
+            <img
+                src="{{ post.image.url }}"
+                class="card-img-top memory-image"
+            >
+
+            <!-- Card Body -->
+
+            <div class="card-body">
+
+                <!-- User and Date -->
+
+                <div class="d-flex justify-content-between mb-2">
+
+                    <h5>
+                        @{{ post.user.username }}
+                    </h5>
+
+                    <small class="text-muted">
+                        {{ post.created_at }}
+                    </small>
+
+                </div>
+
+                <!-- Description -->
+
+                <p>
+                    {{ post.description }}
+                </p>
+
+                <!-- Like Button -->
+
+                <form
+                    method="POST"
+                    action="{% url 'like_post' post.id %}"
+                    class="d-inline"
+                >
+
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="btn btn-outline-danger btn-sm"
+                    >
+                        ❤️ {{ post.total_likes }}
+                    </button>
+
+                </form>
+
+                <!-- Delete Button -->
+
+                {% if request.user == post.user %}
+
+                <form
+                    method="POST"
+                    action="{% url 'delete_post' post.id %}"
+                    class="d-inline"
+                >
+
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="btn btn-outline-dark btn-sm"
+                    >
+                        Delete
+                    </button>
+
+                </form>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="text-center">
+
+    <h5>No memories uploaded yet.</h5>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
