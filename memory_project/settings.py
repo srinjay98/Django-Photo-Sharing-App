@@ -24,10 +24,14 @@ SECRET_KEY = 'your-secret-key'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-
 ALLOWED_HOSTS = [
-    'django-photo-sharing-app.onrender.com'
+    'django-photo-sharing-app.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-photo-sharing-app.onrender.com'
 ]
 # =========================================
 # INSTALLED APPS

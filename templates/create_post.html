@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
 
 {% block content %}
 
@@ -21,6 +22,58 @@
                 {% endif %}
 
                 <form method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <input
+                        type="file"
+                        name="image"
+                        class="form-control mb-3"
+                        required
+                    >
+
+                    <textarea
+                        name="description"
+                        class="form-control mb-3"
+                        rows="4"
+                        placeholder="Write memory..."
+                    ></textarea>
+
+                    <button class="btn btn-success w-100">
+                        Upload
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <h3 class="text-center mb-4">
+                    Upload Memory
+                </h3>
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
 
                     {% csrf_token %}
 
