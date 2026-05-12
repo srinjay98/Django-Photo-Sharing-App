@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -118,11 +120,17 @@ WSGI_APPLICATION = 'memory_project.wsgi.application'
 # DATABASE
 # =========================================
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        os.environ.get('postgresql://memorypic_db_user:fOkqeldHNFFuqwKVJuCyj9z693z4zoUm@dpg-d81hd1svikkc73fqh6ug-a.oregon-postgres.render.com/memorypic_db')
+    )
 }
 
 
