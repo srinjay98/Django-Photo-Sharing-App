@@ -182,11 +182,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CLOUDINARY_STORAGE = {
 
-    'CLOUD_NAME': 'your_cloud_name',
+    'CLOUD_NAME': 'dliq6tx2w',
 
-    'API_KEY': 'your_api_key',
+    'API_KEY': '819719453898671',
 
-    'API_SECRET': 'your_api_secret',
+    'API_SECRET': 'RVtKEzxipgmgpLgRnKHVYMT_yjw',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
