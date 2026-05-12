@@ -53,6 +53,8 @@ INSTALLED_APPS = [
 
     # Local Apps
     'memories',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 
@@ -178,9 +180,16 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # MEDIA FILES
 # =========================================
 
-MEDIA_URL = '/media/'
+CLOUDINARY_STORAGE = {
 
-MEDIA_ROOT = BASE_DIR / 'media'
+    'CLOUD_NAME': 'your_cloud_name',
+
+    'API_KEY': 'your_api_key',
+
+    'API_SECRET': 'your_api_secret',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # =========================================
