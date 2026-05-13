@@ -28,7 +28,10 @@ import re
 # saurya , password : 0987
 
 #  user = User.objects.get(username='srinjay')      
-# >>> user.set_password('Srinjay@1234')  
+# >>> user.set_password('Srinjay@1234') 
+# 
+# srper user name : aditya
+# psswd : Aditya@1234 
 
 def feed_page(request):
 
